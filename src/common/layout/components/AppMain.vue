@@ -1,0 +1,33 @@
+<template>
+  <van-col span="22" offset="1">
+    <transition name="van-fade" mode="out-in">
+      <router-view
+        :key="key"/>
+    </transition>
+  </van-col>
+</template>
+
+<script>
+  export default {
+    name: 'AppMain',
+    computed: {
+      key() {
+        return this.$route.path
+      }
+    }
+  }
+</script>
+<style>
+  body {
+    background-color: #f2f3f5;
+    width: 100%;
+    height: 100%;
+  }
+
+  body:after {
+    content: '';
+    height: 40px;
+    display: block;
+    background-color: #f2f3f5;
+  }
+</style>
