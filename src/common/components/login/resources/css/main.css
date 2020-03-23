@@ -28,6 +28,9 @@
 
 body, html {
   height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
   font-family: Montserrat-Regular, sans-serif;
 }
 
@@ -210,6 +213,7 @@ iframe {
   background-size: cover;
   background-position: center;
   position: relative;
+  overflow: hidden;
   z-index: 1;
 }
 
