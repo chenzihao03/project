@@ -20,7 +20,7 @@
               status="未审批"
               @click="showList = true">
               <div style="padding:10px;">
-                车间调度平台是否具备生产条件字段因无法统计状态，导致调度无法派工的问题，添加字段，通过执行存储过程反写状态
+                &nbsp;&nbsp;&nbsp;&nbsp;车间调度平台是否具备生产条件字段因无法统计状态，导致调度无法派工的问题，添加字段，通过执行存储过程反写状态
               </div>
             </van-panel>
             <template #right>
@@ -28,14 +28,17 @@
                 square
                 text="删除"
                 type="danger"
-                class="delete-button"/>
+                class="delete-button"
+                @click="onDelete"/>
             </template>
           </van-swipe-cell>
         </van-row>
       </van-row>
     </van-pull-refresh>
-    <!-- 联系人列表 -->
-    <van-popup v-model="showList" round position="bottom">
+    <van-popup
+      v-model="showList"
+      :style="{ width: '100%' }"
+      round position="bottom">
       <project-cost></project-cost>
     </van-popup>
   </div>
@@ -59,28 +62,23 @@
           this.isLoading = false;
         }, 1000);
       },
-      // 添加联系人
       onAdd() {
         this.editingContact = {id: this.list.length};
         this.isEdit = false;
         this.showEdit = true;
       },
 
-      // 编辑联系人
       onEdit(item) {
         this.isEdit = true;
         this.showEdit = true;
         this.editingContact = item;
       },
 
-      // 选中联系人
       onSelect() {
         this.showList = false;
       },
 
-      // 保存联系人
       onSave(info) {
-        this.showEdit = false;
         this.showList = false;
 
         if (this.isEdit) {
@@ -91,13 +89,8 @@
         this.chosenContactId = info.id;
       },
 
-      // 删除联系人
       onDelete(info) {
-        this.showEdit = false;
-        this.list = this.list.filter(item => item.id !== info.id);
-        if (this.chosenContactId === info.id) {
-          this.chosenContactId = null;
-        }
+        this.$toast.success('删除成功！');
       }
     },
     computed: {

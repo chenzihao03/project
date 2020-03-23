@@ -12,10 +12,7 @@
         ></Selector>
       </template>
     </van-cell-group>
-    <van-submit-bar
-      button-text="提交"
-      @submit="onSubmit"
-    />
+    <van-button type="primary" round block>提交</van-button>
   </div>
 </template>
 <script>
@@ -41,7 +38,7 @@
           columns: ['开发费', '实施费', '管理费', '请假', '其他费用']
         }, {
           name: "工作时间",
-          type: "text",
+          type: "number",
           placeholder: "填写工作时间（小时）"
         }, {
           name: "工作日期",

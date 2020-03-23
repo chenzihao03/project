@@ -20,9 +20,6 @@ export const constantRoutes = [{
   path: '/login',
   component: () => import('@/common/components/login/index'),
 }, {
-  path: '/projectCost',
-  component: () => import('@/model/projectcost/index'),
-}, {
   path: '/error',
   component: Layout,
   children: [{

@@ -10,21 +10,17 @@
       :placeholder="placeholder"
       @click="showPicker = true"
     />
-    <van-popup
-      v-model="showPicker"
-      position="bottom"
-      v-if="type==='select'">
-      <van-picker
-        show-toolbar
-        :columns="columns"
-        @confirm="onConfirm"
-        @cancel="showPicker = false"
-      />
-    </van-popup>
     <van-field
       :label="label"
       :value="value"
       v-if="type==='text'"
+      :placeholder="placeholder"/>
+    <van-field
+      :label="label"
+      :value="value"
+      :error-message="errorInfo"
+      v-if="type==='number'"
+      @touchstart.native.stop="keyboardShow = true"
       :placeholder="placeholder"/>
     <van-field
       readonly
@@ -50,6 +46,27 @@
       :placeholder="placeholder"
       show-word-limit
     />
+    <van-number-keyboard
+      :show="keyboardShow"
+      theme="custom"
+      extra-key="."
+      close-button-text="完成"
+      @blur="keyboardShow = false"
+      @input="onInput"
+      @delete="onDelete"
+    />
+    <van-popup
+      v-model="showPicker"
+      position="bottom"
+      :style="{ width: '100%' }"
+      v-if="type==='select'">
+      <van-picker
+        show-toolbar
+        :columns="columns"
+        @confirm="onConfirm"
+        @cancel="showPicker = false"
+      />
+    </van-popup>
   </van-cell-group>
 </template>
 <script>
@@ -75,6 +92,8 @@
     data() {
       return {
         value: '',
+        errorInfo: '',
+        keyboardShow: false,
         showPicker: false,
         showCalendar: false
       }
@@ -85,10 +104,25 @@
         this.showPicker = false;
       },
       onConfirmDate(date) {
-        debugger;
         this.value = `${date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate()}`;
         this.showCalendar = false;
-      }
+      },
+      onDelete() {
+        this.value = this.value.slice(0, this.value.length - 1);
+        if (this.value > 24) {
+          this.errorInfo = '工作时间不能大于24小时';
+        } else {
+          this.errorInfo = '';
+        }
+      },
+      onInput(key) {
+        this.value = (this.value + key).slice(0, 2);
+        if (this.value > 24) {
+          this.errorInfo = '工作时间不能大于24小时';
+        } else {
+          this.errorInfo = '';
+        }
+      },
     }
   }
 </script>

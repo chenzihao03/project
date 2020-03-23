@@ -22,7 +22,6 @@
       <van-sidebar-item title="首页" dot to="/home"/>
       <van-sidebar-item title="步骤" dot to="/step"/>
       <van-sidebar-item title="项目" dot to="/project"/>
-      <van-sidebar-item title="本日工作内容" dot to="/projectCost"/>
     </van-sidebar>
   </van-popup>
 </template>
