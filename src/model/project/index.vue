@@ -1,9 +1,35 @@
 <template>
-  <van-collapse v-model="activeName" accordion>
-    <van-collapse-item title="标题1" name="1">内容</van-collapse-item>
-    <van-collapse-item title="标题2" name="2">内容</van-collapse-item>
-    <van-collapse-item title="标题3" name="3">内容</van-collapse-item>
-  </van-collapse>
+  <van-index-bar>
+    <van-index-anchor index="A"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="B"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="C"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="D"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="E"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="F"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+  </van-index-bar>
 </template>
 <script>
   export default {
@@ -15,12 +41,5 @@
   }
 </script>
 <style scoped>
-  .van-collapse {
-    background-color: #f2f3f5 !important;
-  }
-
-  .van-collapse-item {
-    background-color: #f2f3f5 !important;
-  }
 </style>
 

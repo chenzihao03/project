@@ -13,10 +13,16 @@
           v-for="count in 10"
           :key="count">
           <van-swipe-cell>
-            <van-cell icon="label" @click="showList = true">
-              <van-row>项目: D工厂-北一D工厂MES系统</van-row>
-              <van-row>时间: 2020-02-21</van-row>
-            </van-cell>
+            <van-panel
+              title="2020-02-21"
+              icon="label"
+              desc="D工厂-北一D工厂MES系统"
+              status="未审批"
+              @click="showList = true">
+              <div style="padding:10px;">
+                车间调度平台是否具备生产条件字段因无法统计状态，导致调度无法派工的问题，添加字段，通过执行存储过程反写状态
+              </div>
+            </van-panel>
             <template #right>
               <van-button
                 square

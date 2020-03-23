@@ -1,7 +1,7 @@
 <template>
   <div>
-    <br>
-    <van-cell-group>
+    <br><br>
+    <van-cell-group class="group-class">
       <template v-for="(item,index) in label">
         <Selector
           :key="index"
@@ -66,12 +66,8 @@
     }
   }
 </script>
-<style>
-  .van-cell {
-    border-radius: 10px;
-  }
-
-  .van-cell-group {
+<style scoped>
+  .group-class {
     border-radius: 10px;
   }
 </style>
