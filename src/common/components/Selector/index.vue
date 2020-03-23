@@ -11,11 +11,14 @@
       @click="showPicker = true"
     />
     <van-field
+      clickable
       :label="label"
       :value="value"
       v-if="type==='text'"
       :placeholder="placeholder"/>
     <van-field
+      readonly
+      clickable
       :label="label"
       :value="value"
       :error-message="errorInfo"
@@ -37,6 +40,7 @@
       v-model="showCalendar"
       @confirm="onConfirmDate"/>
     <van-field
+      clickable
       v-if="type==='message'"
       v-model="value"
       rows="10"
