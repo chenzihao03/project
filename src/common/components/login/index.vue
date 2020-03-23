@@ -1,13 +1,13 @@
 <template>
   <div class="limiter">
     <div class="container-login100">
-      <div class="wrap-login100 p-t-190 p-b-30">
+      <div class="wrap-login100 p-t-100 p-b-30">
         <form class="login100-form validate-form">
           <div class="login100-form-avatar">
             <img src="@/assets/img/logo.jpg" alt="AVATAR">
           </div>
 
-          <span class="login100-form-title p-t-20 p-b-45">Hello</span>
+          <span class="login100-form-title p-t-5 p-b-20">Hello</span>
 
           <div class="wrap-input100 validate-input m-b-10" data-validate="请输入用户名">
             <input class="input100" type="text" v-model="username" placeholder="用户名" autocomplete="off">
@@ -21,7 +21,7 @@
 
           <button class="login100-form-btn" type="button" @click="checkLogin">登 录</button>
 
-          <div class="text-center w-full p-t-25 50">
+          <div class="text-center w-full p-t-35 50">
             <a href="#" class="txt1">忘记密码？</a>
           </div>
         </form>
