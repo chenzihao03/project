@@ -1,5 +1,5 @@
 <template>
-  <van-col span="22" offset="1">
+  <van-col span="22" offset="1" class="col-class">
     <transition name="van-fade" mode="out-in">
       <router-view
         :key="key"/>
@@ -24,7 +24,7 @@
     height: 100%;
   }
 
-  body:after {
+  .col-class:after {
     content: '';
     height: 40px;
     display: block;

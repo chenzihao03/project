@@ -126,7 +126,7 @@
         } else {
           this.errorInfo = '';
         }
-      },
+      }
     }
   }
 </script>
