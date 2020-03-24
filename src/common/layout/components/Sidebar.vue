@@ -7,13 +7,15 @@
     @close="setCollapse"
   >
     <table>
-      <tr>
+      <tr style="text-align:center;">
         <img
           slot="reference"
           src="@/assets/img/logo.jpg"
           style="height: 50px;width: 50px;border-radius: 25px;"/>
       </tr>
-      <tr><span class="span-class">您好！陈梓豪</span></tr>
+      <tr style="text-align:center;">
+        <span class="span-class">陈梓豪</span>
+      </tr>
     </table>
     <van-sidebar
       @change="setCollapse"
@@ -57,10 +59,9 @@
 
   table {
     width: 100%;
-    padding: 30px 0 20px 20px;
+    padding: 60px 0 40px 0px;
     border-spacing: 0px 5px;
-    background-image: url("../../../assets/img/avater-bg.png");
-    background-size: 100% 100%;
+    background-color: #646566;
   }
 
   .van-sidebar {
