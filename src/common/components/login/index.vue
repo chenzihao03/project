@@ -1,7 +1,7 @@
 <template>
   <div class="limiter">
     <div class="container-login100">
-      <div class="wrap-login100 p-t-100 p-b-30">
+      <div class="wrap-login100 p-t-70 p-b-30">
         <form class="login100-form validate-form">
           <div class="login100-form-avatar">
             <img src="@/assets/img/logo.jpg" alt="AVATAR">
@@ -21,7 +21,7 @@
 
           <button class="login100-form-btn" type="button" @click="checkLogin">登 录</button>
 
-          <div class="text-center w-full p-t-35 50">
+          <div class="text-center w-full p-t-20 50">
             <a href="#" class="txt1">忘记密码？</a>
           </div>
         </form>
