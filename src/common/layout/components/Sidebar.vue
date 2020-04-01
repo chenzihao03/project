@@ -4,27 +4,55 @@
     round
     position="left"
     :style="{ width: '70%',height: '100%' }"
-    @close="setCollapse"
-  >
-    <table>
-      <tr style="text-align:center;">
+    @close="setCollapse">
+    <van-row>
+      <van-col :span="14">
+        <span class="name-span">陈梓豪</span>
+        <span>北方事业部</span>
+      </van-col>
+      <van-col :span="4">
         <img
-          slot="reference"
           src="@/assets/img/logo.jpg"
-          style="height: 50px;width: 50px;border-radius: 25px;"/>
-      </tr>
-      <tr style="text-align:center;">
-        <span class="span-class">陈梓豪</span>
-      </tr>
-    </table>
-    <van-sidebar
-      @change="setCollapse"
-      style="width: 100%;"
-      v-model="activeKey">
-      <van-sidebar-item title="首页" dot to="/home"/>
-      <van-sidebar-item title="步骤" dot to="/step"/>
-      <van-sidebar-item title="项目" dot to="/project"/>
-    </van-sidebar>
+          style="height: 80px;width: 80px;border-radius: 50px;"
+        />
+      </van-col>
+    </van-row>
+    <el-menu
+      default-active="2"
+      class="el-menu-vertical-demo"
+      @open="handleOpen"
+      @close="handleClose">
+      <el-submenu index="1">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <el-menu-item-group>
+          <template slot="title">分组一</template>
+          <el-menu-item index="1-1">选项1</el-menu-item>
+          <el-menu-item index="1-2">选项2</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group title="分组2">
+          <el-menu-item index="1-3">选项3</el-menu-item>
+        </el-menu-item-group>
+        <el-submenu index="1-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="1-4-1">选项1</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="2">
+        <i class="el-icon-menu"></i>
+        <span slot="title">导航二</span>
+      </el-menu-item>
+      <el-menu-item index="3" disabled>
+        <i class="el-icon-document"></i>
+        <span slot="title">导航三</span>
+      </el-menu-item>
+      <el-menu-item index="4">
+        <i class="el-icon-setting"></i>
+        <span slot="title">导航四</span>
+      </el-menu-item>
+    </el-menu>
   </van-popup>
 </template>
 
@@ -52,19 +80,21 @@
 </script>
 
 <style scoped>
-  .span-class {
-    font-size: 15px;
-    color: white;
+  * {
+    background-color: #f2f3f5;
   }
 
-  table {
-    width: 100%;
-    padding: 60px 0 40px 0px;
-    border-spacing: 0px 5px;
-    background-color: #646566;
+  .van-col {
+    padding: 30px 0 30px 15px;
   }
 
-  .van-sidebar {
-    background-color: #e8e8e8 !important;
+  .name-span {
+    display: block;
+    font-size: 1.3em;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
   }
 </style>
