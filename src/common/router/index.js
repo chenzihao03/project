@@ -18,10 +18,12 @@ export const constantRoutes = [{
   hidden: true,
 }, {
   path: '/login',
+  hidden: true,
   component: () => import('@/common/components/login/index'),
 }, {
   path: '/error',
   component: Layout,
+  hidden: true,
   children: [{
     path: '/error',
     name: '错误',
@@ -30,13 +32,16 @@ export const constantRoutes = [{
 }, {
   path: '/home',
   component: Layout,
+  hidden: true,
   children: [{
     path: '/home',
-    component: () => import('@/model/home/index')
+    component: () => import('@/model/home/index'),
+    meta: {title: '首页', icon: 'fa fa-home'}
   }]
 }, {
   path: '/project',
   component: Layout,
+  hidden: true,
   children: [{
     path: '/project',
     component: () => import('@/model/project/index')
@@ -44,9 +49,115 @@ export const constantRoutes = [{
 }, {
   path: '/step',
   component: Layout,
+  hidden: true,
   children: [{
     path: '/step',
     component: () => import('@/model/step/index')
+  }]
+}, {
+  path: '/task',
+  name: '作业管理',
+  component: Layout,
+  meta: {title: '作业管理', icon: 'fa fa-tasks'},
+  children: [{
+    path: 'apsSchedule',
+    name: '排程操作平台',
+    component: () => import('@/model/step/index'),
+    meta: {title: '排程操作平台', icon: 'fa fa-window-restore', requireAuth: true}
+  }, {
+    path: 'apsDispatch',
+    name: '排程任务指派',
+    component: () => import('@/model/project/index'),
+    meta: {title: '排程任务指派', icon: 'fa fa-truck', requireAuth: true}
+  }]
+}, {
+  path: '/gantt',
+  name: '甘特图',
+  component: Layout,
+  meta: {title: '甘特图', icon: 'fa fa-area-chart'},
+  children: [{
+    path: 'orderGantt',
+    name: '订单甘特图',
+    component: () => import('@/model/step/index'),
+    meta: {title: '订单甘特图', icon: 'fa fa-map-signs', requireAuth: true}
+  }, {
+    path: 'eqmGantt',
+    name: '设备甘特图',
+    component: () => import('@/model/step/index'),
+    meta: {title: '设备甘特图', icon: 'fa fa-bar-chart', requireAuth: true}
+  }]
+}, {
+  path: '/reports',
+  name: '查询报表',
+  component: Layout,
+  meta: {title: '查询报表', icon: 'fa fa-search'},
+  children: [{
+    path: 'apsScheduleReport',
+    name: '排产结果查询',
+    component: () => import('@/model/step/index'),
+    meta: {title: '排产结果查询', icon: 'fa fa-file-text', requireAuth: true}
+  }]
+}, {
+  path: '/apsSet',
+  name: '排程设置',
+  component: Layout,
+  meta: {title: '排程设置', icon: 'fa fa-cogs'},
+  children: [{
+    path: 'apsSetting',
+    name: '基础设定',
+    component: () => import('@/model/step/index'),
+    meta: {title: '基础设定', icon: 'fa fa-cog', requireAuth: true}
+  }, {
+    path: 'apsRegular',
+    name: '规则设定',
+    component: () => import('@/model/step/index'),
+    meta: {title: '规则设定', icon: 'fa fa-pencil-square-o', requireAuth: true}
+  }, {
+    path: 'apsSend',
+    name: '自动发出设定',
+    component: () => import('@/model/step/index'),
+    meta: {title: '自动发出设定', icon: 'fa fa-recycle', requireAuth: true}
+  }, {
+    path: 'apsConfirm',
+    name: '自动确认设定',
+    component: () => import('@/model/step/index'),
+    meta: {title: '自动确认设定', icon: 'fa fa-random', requireAuth: true}
+  }]
+}, {
+  path: '/components',
+  name: '组件',
+  component: Layout,
+  meta: {title: '组件', icon: 'mdi-video-input-component'},
+  children: [{
+    path: 'tree',
+    name: '树',
+    component: () => import('@/model/step/index'),
+    meta: {title: '树', icon: 'mdi-file-tree', requireAuth: true}
+  }, {
+    path: 'table',
+    name: '表格',
+    component: () => import('@/model/step/index'),
+    meta: {title: '表格', icon: 'mdi-file-table', requireAuth: true}
+  }, {
+    path: 'carousel',
+    name: '跑马灯',
+    component: () => import('@/model/step/index'),
+    meta: {title: '跑马灯', icon: 'mdi-view-carousel', requireAuth: true}
+  }, {
+    path: 'collapse',
+    name: '折叠板',
+    component: () => import('@/model/step/index'),
+    meta: {title: '折叠板', icon: 'mdi-format-align-bottom', requireAuth: true}
+  }, {
+    path: 'form',
+    name: '表单',
+    component: () => import('@/model/step/index'),
+    meta: {title: '表单', icon: 'mdi-book-minus', requireAuth: true}
+  }, {
+    path: 'draggerable',
+    name: '拖动',
+    component: () => import('@/model/step/index'),
+    meta: {title: '拖动', icon: 'mdi-book-minus', requireAuth: true}
   }]
 }];
 
