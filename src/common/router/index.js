@@ -31,60 +31,71 @@ export const constantRoutes = [{
   }]
 }, {
   path: '/home',
-  component: Layout,
   hidden: true,
-  children: [{
-    path: '/home',
-    component: () => import('@/model/home/index'),
-    meta: {title: '首页', icon: 'fa fa-home'}
-  }]
-}, {
-  path: '/project',
   component: Layout,
-  hidden: true,
-  children: [{
-    path: '/project',
-    component: () => import('@/model/project/index')
-  }]
+  redirect: '/projectCost/projectCost'
 }, {
-  path: '/step',
+  path: '/settings',
+  name: '系统设置',
   component: Layout,
-  hidden: true,
+  meta: {title: '系统设置', icon: 'fa fa-cogs'},
   children: [{
-    path: '/step',
-    component: () => import('@/model/step/index')
-  }]
-}, {
-  path: '/task',
-  name: '作业管理',
-  component: Layout,
-  meta: {title: '作业管理', icon: 'fa fa-tasks'},
-  children: [{
-    path: 'apsSchedule',
-    name: '排程操作平台',
+    path: 'function',
+    name: '功能菜单维护',
     component: () => import('@/model/step/index'),
-    meta: {title: '排程操作平台', icon: 'fa fa-window-restore', requireAuth: true}
+    meta: {title: '功能菜单维护', icon: 'fa fa-sitemap', requireAuth: true}
   }, {
-    path: 'apsDispatch',
-    name: '排程任务指派',
+    path: 'logUser',
+    name: '登录用户维护',
+    component: () => import('@/model/step/index'),
+    meta: {title: '登录用户维护', icon: 'fa fa-user-plus', requireAuth: true}
+  }]
+}, {
+  path: '/basic',
+  name: '基础数据',
+  component: Layout,
+  meta: {title: '基础数据', icon: 'fa fa-tasks'},
+  children: [{
+    path: 'department',
+    name: '部门维护',
+    component: () => import('@/model/step/index'),
+    meta: {title: '部门维护', icon: 'fa fa-users', requireAuth: true}
+  }, {
+    path: 'user',
+    name: '用户维护',
     component: () => import('@/model/project/index'),
-    meta: {title: '排程任务指派', icon: 'fa fa-truck', requireAuth: true}
+    meta: {title: '用户维护', icon: 'fa fa-address-card', requireAuth: true}
+  }, {
+    path: 'custom',
+    name: '客户维护',
+    component: () => import('@/model/project/index'),
+    meta: {title: '客户维护', icon: 'fa fa-user-circle-o', requireAuth: true}
+  }, {
+    path: 'project',
+    name: '项目维护',
+    component: () => import('@/model/project/index'),
+    meta: {title: '项目维护', icon: 'fa fa-cubes', requireAuth: true}
+  }, {
+    path: 'cost',
+    name: '成本项',
+    component: () => import('@/model/project/index'),
+    meta: {title: '成本项', icon: 'fa fa-university', requireAuth: true}
   }]
 }, {
-  path: '/gantt',
-  name: '甘特图',
+  path: '/projectCost',
+  name: '项目成本',
   component: Layout,
-  meta: {title: '甘特图', icon: 'fa fa-area-chart'},
+  meta: {title: '项目成本', icon: 'fa fa-university'},
   children: [{
-    path: 'orderGantt',
-    name: '订单甘特图',
-    component: () => import('@/model/step/index'),
-    meta: {title: '订单甘特图', icon: 'fa fa-map-signs', requireAuth: true}
+    path: 'projectCost',
+    name: '项目成本录入',
+    component: () => import('@/model/home/index'),
+    meta: {title: '项目成本录入', icon: 'fa fa-align-justify', requireAuth: true}
   }, {
-    path: 'eqmGantt',
-    name: '设备甘特图',
+    path: 'projectCheck',
+    name: '项目成本审核',
     component: () => import('@/model/step/index'),
-    meta: {title: '设备甘特图', icon: 'fa fa-bar-chart', requireAuth: true}
+    meta: {title: '项目成本审核', icon: 'fa fa-flag-checkered', requireAuth: true}
   }]
 }, {
   path: '/reports',
@@ -92,72 +103,25 @@ export const constantRoutes = [{
   component: Layout,
   meta: {title: '查询报表', icon: 'fa fa-search'},
   children: [{
-    path: 'apsScheduleReport',
-    name: '排产结果查询',
+    path: 'myReport',
+    name: '个人项目成本统计',
     component: () => import('@/model/step/index'),
-    meta: {title: '排产结果查询', icon: 'fa fa-file-text', requireAuth: true}
-  }]
-}, {
-  path: '/apsSet',
-  name: '排程设置',
-  component: Layout,
-  meta: {title: '排程设置', icon: 'fa fa-cogs'},
-  children: [{
-    path: 'apsSetting',
-    name: '基础设定',
-    component: () => import('@/model/step/index'),
-    meta: {title: '基础设定', icon: 'fa fa-cog', requireAuth: true}
+    meta: {title: '个人项目成本统计', icon: 'fa fa-file-text', requireAuth: true}
   }, {
-    path: 'apsRegular',
-    name: '规则设定',
+    path: 'userReport',
+    name: '项目人员成本统计',
     component: () => import('@/model/step/index'),
-    meta: {title: '规则设定', icon: 'fa fa-pencil-square-o', requireAuth: true}
+    meta: {title: '项目人员成本统计', icon: 'fa fa-file-text', requireAuth: true}
   }, {
-    path: 'apsSend',
-    name: '自动发出设定',
+    path: 'projectReport',
+    name: '项目成本项统计',
     component: () => import('@/model/step/index'),
-    meta: {title: '自动发出设定', icon: 'fa fa-recycle', requireAuth: true}
+    meta: {title: '项目成本项统计', icon: 'fa fa-file-text', requireAuth: true}
   }, {
-    path: 'apsConfirm',
-    name: '自动确认设定',
+    path: 'usersReport',
+    name: '人员日工时统计',
     component: () => import('@/model/step/index'),
-    meta: {title: '自动确认设定', icon: 'fa fa-random', requireAuth: true}
-  }]
-}, {
-  path: '/components',
-  name: '组件',
-  component: Layout,
-  meta: {title: '组件', icon: 'mdi-video-input-component'},
-  children: [{
-    path: 'tree',
-    name: '树',
-    component: () => import('@/model/step/index'),
-    meta: {title: '树', icon: 'mdi-file-tree', requireAuth: true}
-  }, {
-    path: 'table',
-    name: '表格',
-    component: () => import('@/model/step/index'),
-    meta: {title: '表格', icon: 'mdi-file-table', requireAuth: true}
-  }, {
-    path: 'carousel',
-    name: '跑马灯',
-    component: () => import('@/model/step/index'),
-    meta: {title: '跑马灯', icon: 'mdi-view-carousel', requireAuth: true}
-  }, {
-    path: 'collapse',
-    name: '折叠板',
-    component: () => import('@/model/step/index'),
-    meta: {title: '折叠板', icon: 'mdi-format-align-bottom', requireAuth: true}
-  }, {
-    path: 'form',
-    name: '表单',
-    component: () => import('@/model/step/index'),
-    meta: {title: '表单', icon: 'mdi-book-minus', requireAuth: true}
-  }, {
-    path: 'draggerable',
-    name: '拖动',
-    component: () => import('@/model/step/index'),
-    meta: {title: '拖动', icon: 'mdi-book-minus', requireAuth: true}
+    meta: {title: '人员日工时统计', icon: 'fa fa-file-text', requireAuth: true}
   }]
 }];
 
