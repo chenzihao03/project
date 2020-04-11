@@ -2,6 +2,7 @@
   <van-row>
     <van-row>&nbsp;</van-row>
     <van-row>&nbsp;</van-row>
+    <van-row>&nbsp;</van-row>
     <van-row>
       <van-col span="2" offset="1">
         <van-icon name="bars" @click="isShow = true"/>

@@ -427,15 +427,6 @@ iframe {
   opacity: 0;
 }
 
-.login100-form-btn:hover {
-  background: transparent;
-  color: #fff;
-}
-
-.login100-form-btn:hover:before {
-  opacity: 1;
-}
-
 /*------------------------------------------------------------------
 [ Button sign in with ]*/
 .btn-face,

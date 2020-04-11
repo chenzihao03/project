@@ -19,14 +19,14 @@
 </script>
 <style>
   body {
-    background-color: #f2f3f5;
     width: 100%;
     height: 100%;
+    background-color: #f2f3f5;
   }
 
   .col-class:after {
     content: '';
-    height: 40px;
+    height: 50px;
     display: block;
     background-color: #f2f3f5;
   }

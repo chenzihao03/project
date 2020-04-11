@@ -15,7 +15,7 @@
     methods: {}
   }
 </script>
-<style>
+<style scoped>
   body {
     font-family: "FontAwesome";
     margin: 0;

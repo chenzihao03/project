@@ -1,0 +1,53 @@
+<template>
+  <van-index-bar>
+    <van-index-anchor index="A"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="B"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="C"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="D"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="E"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+    <van-index-anchor index="F"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+    <van-cell title="文本"/>
+
+  </van-index-bar>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        loading: false
+      }
+    },
+    methods: {
+      handleNodeClick(data) {
+        console.log(data);
+      }
+    }
+  };
+</script>
+<style scoped>
+  * {
+    background-color: #f2f3f5;
+  }
+</style>

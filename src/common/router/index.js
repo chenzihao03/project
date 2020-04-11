@@ -42,12 +42,12 @@ export const constantRoutes = [{
   children: [{
     path: 'function',
     name: '功能菜单维护',
-    component: () => import('@/model/step/index'),
+    component: () => import('@/model/sys/functionmenu/index'),
     meta: {title: '功能菜单维护', icon: 'fa fa-sitemap', requireAuth: true}
   }, {
     path: 'logUser',
     name: '登录用户维护',
-    component: () => import('@/model/step/index'),
+    component: () => import('@/model/sys/user/index'),
     meta: {title: '登录用户维护', icon: 'fa fa-user-plus', requireAuth: true}
   }]
 }, {
