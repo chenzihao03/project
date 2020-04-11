@@ -46,8 +46,3 @@
     }
   };
 </script>
-<style scoped>
-  * {
-    background-color: #f2f3f5;
-  }
-</style>

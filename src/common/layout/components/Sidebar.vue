@@ -65,7 +65,7 @@
   }
 
   .van-col {
-    padding: 30px 0 30px 15px;
+    padding: 40px 0 30px 15px;
   }
 
   .name-span {
