@@ -61,11 +61,11 @@
 
 <style scoped>
   * {
-    background-color: #f2f3f5;
+    background-color: #f2f3f5 !important;
   }
 
   .van-col {
-    padding: 40px 0 30px 15px;
+    padding: 30px 0 30px 15px;
   }
 
   .name-span {

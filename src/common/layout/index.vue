@@ -1,8 +1,6 @@
 <template>
   <van-row>
-    <van-sticky>
-      <navbar/>
-    </van-sticky>
+    <navbar/>
     <app-main/>
     <tabbar :menu="routes"/>
   </van-row>

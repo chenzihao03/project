@@ -1,15 +1,51 @@
 <template>
-  <van-uploader :after-read="afterRead"/>
+  <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+    <van-swipe-cell v-for="count in 10" :key="count">
+      <van-cell>
+        <van-row type="flex" align="center">
+          <el-avatar shape="square">{{text}}</el-avatar>
+          <span class="span-class">{{text}}</span>
+        </van-row>
+      </van-cell>
+      <template #right>
+        <van-button square type="danger" text="删除" class="delete-button"/>
+      </template>
+    </van-swipe-cell>
+  </van-pull-refresh>
 </template>
 <script>
   export default {
+    data() {
+      return {
+        isLoading: false,
+        text: "示例141411141"
+      }
+    },
     methods: {
-      afterRead(file) {
-        // 此时可以自行将文件上传至服务器
-        console.log(file);
+      onRefresh() {
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 1000);
       }
     }
   };
 </script>
 <style scoped>
+  .van-cell {
+    padding-left: 0;
+    background-color: #f2f3f5;
+  }
+
+  .van-swipe-cell {
+    padding-bottom: 10px;
+  }
+
+  .span-class {
+    padding-left: 10px;
+    font-size: 18px;
+  }
+
+  .delete-button {
+    height: 100%;
+  }
 </style>

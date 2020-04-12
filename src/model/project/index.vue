@@ -111,6 +111,10 @@
   }
 </script>
 <style scoped>
+  body {
+    background-color: #f2f3f5 !important;
+  }
+
   .row-class {
     margin-bottom: 10px;
   }

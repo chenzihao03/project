@@ -1,47 +1,35 @@
 <template>
-  <van-index-bar>
-    <van-index-anchor index="A"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-
-    <van-index-anchor index="B"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-
-    <van-index-anchor index="C"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-
-    <van-index-anchor index="D"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-
-    <van-index-anchor index="E"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-
-    <van-index-anchor index="F"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-    <van-cell title="文本"/>
-
-  </van-index-bar>
+  <div>
+    <van-cell title="显示分享面板" @click="showShare = true"/>
+    <van-share-sheet
+      v-model="showShare"
+      title="立即分享给好友"
+      :options="options"
+      @select="onSelect"/>
+  </div>
 </template>
 <script>
   export default {
     data() {
       return {
-        loading: false
-      }
+        showShare: false,
+        options: [
+          [
+            {name: '微信', icon: 'wechat'},
+            {name: '微博', icon: 'weibo'},
+            {name: 'QQ', icon: 'qq'},
+          ],
+          [
+            {name: '复制链接', icon: 'link'},
+            {name: '分享海报', icon: 'poster'},
+            {name: '二维码', icon: 'qrcode'},
+          ],
+        ],
+      };
     },
     methods: {
-      handleNodeClick(data) {
-        console.log(data);
+      onSelect(option) {
+        this.showShare = false;
       }
     }
   };

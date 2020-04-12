@@ -1,20 +1,26 @@
 <template>
   <van-row>
-    <van-row>&nbsp;</van-row>
-    <van-row>&nbsp;</van-row>
-    <van-row>&nbsp;</van-row>
+    <van-sticky>
+      <van-row>&nbsp;</van-row>
+      <van-row>&nbsp;</van-row>
+      <van-row>
+        <van-nav-bar left-arrow>
+          <template #left>
+            <van-icon name="bars" size="30" @click="isShow = true"/>
+          </template>
+          <template #right>
+            <van-icon name="plus" size="30" @click="tShow"/>
+          </template>
+        </van-nav-bar>
+      </van-row>
+    </van-sticky>
     <van-row>
-      <van-col span="2" offset="1">
-        <van-icon name="bars" @click="isShow = true"/>
-      </van-col>
-      <van-col span="21">
-        <van-search
-          v-model="value"
-          shape="round"
-          background="#f2f3f5"
-          placeholder="请输入搜索关键词"
-        />
-      </van-col>
+      <van-search
+        v-model="value"
+        shape="round"
+        background="#f2f3f5"
+        placeholder="请输入搜索关键词"
+      />
     </van-row>
     <sidebar
       :isShow="isShow"
@@ -41,6 +47,9 @@
       },
       setCollapse(event) {
         this.isShow = event;
+      },
+      tShow() {
+        alert(123);
       }
     }
   }
@@ -52,11 +61,11 @@
 
   .van-icon {
     font-weight: bold;
-    font-size: 30px;
     color: #646566;
   }
 
-  .van-search {
-    margin-top: -10px;
+  .van-field__control {
+    background-color: white !important;
+    border-radius: 0 10px 10px 0;
   }
 </style>
