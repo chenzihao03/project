@@ -61,7 +61,7 @@
 
   .van-icon {
     font-weight: bold;
-    color: #646566;
+    color: #646566 !important;
   }
 
   .van-field__control {
