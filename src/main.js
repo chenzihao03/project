@@ -8,12 +8,16 @@ import '@/common/styles/index.css';
 //引入Font Awesome图标库
 import 'font-awesome/css/font-awesome.min.css';
 import Mui from 'vue-awesome-mui';
+// 引入echarts
+import echarts from 'echarts'
 
+Vue.prototype.$echarts = echarts;
+Vue.config.productionTip = false;
 
 Vue.use(Mui);
 Vue.use(Vant);
+Vue.use(echarts);
 Vue.use(element);
-Vue.config.productionTip = false;
 
 new Vue({
   el: '#app',

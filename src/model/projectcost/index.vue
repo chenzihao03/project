@@ -12,7 +12,7 @@
         ></Selector>
       </template>
     </van-cell-group>
-    <van-button type="primary" block>提交</van-button>
+    <van-button type="primary" block @click="onSubmit">提交</van-button>
   </div>
 </template>
 <script>
@@ -58,7 +58,7 @@
     },
     methods: {
       onSubmit() {
-
+        debugger;
       }
     }
   }

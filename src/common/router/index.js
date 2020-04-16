@@ -30,6 +30,10 @@ export const constantRoutes = [{
     component: () => import('@/common/components/error/index')
   }]
 }, {
+  path: '/step',
+  hidden: true,
+  component: () => import('@/model/projectcost/index')
+},{
   path: '/home',
   hidden: true,
   component: Layout,
@@ -58,12 +62,12 @@ export const constantRoutes = [{
   children: [{
     path: 'department',
     name: '部门维护',
-    component: () => import('@/model/step/index'),
+    component: () => import('@/model/basic/department/index'),
     meta: {title: '部门维护', icon: 'fa fa-users', requireAuth: true}
   }, {
     path: 'user',
     name: '用户维护',
-    component: () => import('@/model/project/index'),
+    component: () => import('@/model/basic/user/index'),
     meta: {title: '用户维护', icon: 'fa fa-address-card', requireAuth: true}
   }, {
     path: 'custom',
@@ -73,7 +77,7 @@ export const constantRoutes = [{
   }, {
     path: 'project',
     name: '项目维护',
-    component: () => import('@/model/project/index'),
+    component: () => import('@/model/basic/project/index'),
     meta: {title: '项目维护', icon: 'fa fa-cubes', requireAuth: true}
   }, {
     path: 'cost',

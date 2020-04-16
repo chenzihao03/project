@@ -5,8 +5,6 @@
     v-model="active">
     <van-tabbar-item icon="wap-home" to="/projectCost/projectCost">首页</van-tabbar-item>
     <van-tabbar-item icon="comment" to="/step">步骤</van-tabbar-item>
-<!--    <van-button icon="plus" type="info"-->
-<!--                style="border:none;background-color: #ebedf0;color: #646566;font-size: 50px;"></van-button>-->
     <van-tabbar-item icon="friends" to="/basic/project">项目</van-tabbar-item>
   </van-tabbar>
 </template>
@@ -27,7 +25,6 @@
   }
 
   .tab-bar {
-    background-color: #ebedf0;
     position: fixed;
   }
 

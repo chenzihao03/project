@@ -60,10 +60,6 @@
 </script>
 
 <style scoped>
-  * {
-    background-color: #f2f3f5 !important;
-  }
-
   .van-col {
     padding: 30px 0 30px 15px;
   }

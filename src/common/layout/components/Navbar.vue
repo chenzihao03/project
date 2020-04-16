@@ -1,6 +1,6 @@
 <template>
-  <van-row>
-    <van-sticky>
+  <van-row class="navbar">
+    <van-sticky class="navbar">
       <van-row>&nbsp;</van-row>
       <van-row>&nbsp;</van-row>
       <van-row>
@@ -14,14 +14,6 @@
         </van-nav-bar>
       </van-row>
     </van-sticky>
-    <van-row>
-      <van-search
-        v-model="value"
-        shape="round"
-        background="#f2f3f5"
-        placeholder="请输入搜索关键词"
-      />
-    </van-row>
     <sidebar
       :isShow="isShow"
       @setCollapse="setCollapse"/>
@@ -56,7 +48,7 @@
 </script>
 <style scoped>
   * {
-    background-color: #f2f3f5 !important;
+    background-color: white;
   }
 
   .van-icon {
