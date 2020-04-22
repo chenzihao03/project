@@ -1,6 +1,6 @@
 <template>
-  <van-row>
-    <navbar/>
+  <van-row class="row-class">
+    <navbar style="height: 90px;"/>
     <app-main/>
     <tabbar :menu="routes"/>
   </van-row>
@@ -28,3 +28,11 @@
     }
   }
 </script>
+<style scoped>
+  .row-class {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+  }
+</style>

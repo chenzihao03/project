@@ -1,19 +1,17 @@
 <template>
   <van-row class="navbar">
-    <van-sticky class="navbar">
-      <van-row>&nbsp;</van-row>
-      <van-row>&nbsp;</van-row>
-      <van-row>
-        <van-nav-bar left-arrow>
-          <template #left>
-            <van-icon name="bars" size="30" @click="isShow = true"/>
-          </template>
-          <template #right>
-            <van-icon name="plus" size="30" @click="tShow"/>
-          </template>
-        </van-nav-bar>
-      </van-row>
-    </van-sticky>
+    <van-row>&nbsp;</van-row>
+    <van-row>&nbsp;</van-row>
+    <van-row>
+      <van-nav-bar left-arrow>
+        <template #left>
+          <van-icon name="bars" size="30" @click="isShow = true"/>
+        </template>
+        <template #right>
+          <van-icon name="plus" size="30" @click="tShow"/>
+        </template>
+      </van-nav-bar>
+    </van-row>
     <sidebar
       :isShow="isShow"
       @setCollapse="setCollapse"/>
@@ -47,10 +45,6 @@
   }
 </script>
 <style scoped>
-  * {
-    background-color: white;
-  }
-
   .van-icon {
     font-weight: bold;
     color: #646566 !important;

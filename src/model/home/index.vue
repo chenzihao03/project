@@ -1,13 +1,11 @@
 <template>
-  <van-col span="22" offset="1">
+  <div>
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-      <br>
       <van-row class="row-class">
         <van-row class="row-class">
           <van-contact-card
             add-text="本日工作内容"
-            @click="showList = true"
-          />
+            @click="showList = true"/>
         </van-row>
         <van-row
           class="row-class"
@@ -42,7 +40,7 @@
       round position="bottom">
       <project-cost></project-cost>
     </van-popup>
-  </van-col>
+  </div>
 </template>
 <script>
   import ProjectCost from '../projectcost';

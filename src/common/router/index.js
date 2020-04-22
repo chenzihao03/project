@@ -39,7 +39,7 @@ export const constantRoutes = [{
   component: Layout,
   redirect: '/projectCost/projectCost'
 }, {
-  path: '/settings',
+  path: '/sys',
   name: '系统设置',
   component: Layout,
   meta: {title: '系统设置', icon: 'fa fa-cogs'},
@@ -51,7 +51,7 @@ export const constantRoutes = [{
   }, {
     path: 'logUser',
     name: '登录用户维护',
-    component: () => import('@/model/sys/user/index'),
+    component: () => import('@/model/sys/loguser/index'),
     meta: {title: '登录用户维护', icon: 'fa fa-user-plus', requireAuth: true}
   }]
 }, {

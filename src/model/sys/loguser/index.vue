@@ -1,5 +1,6 @@
 <template>
   <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+
     <van-col span="22" offset="1">
       <van-swipe-cell v-for="count in 10" :key="count">
         <van-cell clickable>
@@ -15,13 +16,18 @@
     </van-col>
   </van-pull-refresh>
 </template>
+
 <script>
   export default {
     data() {
       return {
+        loading: true,
         isLoading: false,
-        text: "用户"
-      }
+        text: "测试"
+      };
+    },
+    mounted() {
+      this.loading = true;
     },
     methods: {
       onRefresh() {
@@ -30,17 +36,9 @@
         }, 1000);
       }
     }
-  };
+  }
 </script>
 <style scoped>
-  .van-cell {
-    padding-left: 0;
-  }
-
-  .van-swipe-cell {
-    padding-bottom: 10px;
-  }
-
   .span-class {
     padding-left: 10px;
     font-size: 18px;

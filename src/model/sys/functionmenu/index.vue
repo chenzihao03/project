@@ -2,7 +2,7 @@
   <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
     <van-col span="22" offset="1">
       <van-swipe-cell v-for="count in 10" :key="count">
-        <van-cell>
+        <van-cell clickable>
           <van-row type="flex" align="center">
             <el-avatar shape="square">{{text}}</el-avatar>
             <span class="span-class">{{text}}</span>
