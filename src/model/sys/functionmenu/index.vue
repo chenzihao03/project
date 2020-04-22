@@ -1,14 +1,9 @@
 <template>
   <van-tree-select height="55vw" :items="items" :main-active-index.sync="active">
     <template #content>
-      <van-image
-        v-if="active === 0"
-        src="https://img.yzcdn.cn/vant/apple-1.jpg"
-      />
-      <van-image
-        v-if="active === 1"
-        src="https://img.yzcdn.cn/vant/apple-2.jpg"
-      />
+      <van-cell clickable>
+        <span class="span-class">{{text}}</span>
+      </van-cell>
     </template>
   </van-tree-select>
 </template>
@@ -21,8 +16,8 @@
         active: 0,
         activeIndex: 0,
         items: [
-          {text: '浙江', children: [], dot: true},
-          {text: '江苏', children: [], badge: 5},
+          {text: "系统设置"},
+          {text: '基础数据'}
         ]
       }
     },

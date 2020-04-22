@@ -1,6 +1,6 @@
 <template>
   <van-row class="row-class">
-    <navbar style="height: 90px;"/>
+    <navbar/>
     <app-main/>
     <tabbar :menu="routes"/>
   </van-row>

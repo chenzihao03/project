@@ -53,7 +53,7 @@
     },
     computed: {
       routes() {
-        return this.$router.options.routes
+        return this.$store.state.functionMenu
       }
     }
   }

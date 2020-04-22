@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import App from './App';
+
+import store from './common/store';
 import router from './common/router';
 import element from './common/element';
 import Vant from 'vant';
@@ -9,7 +11,7 @@ import '@/common/styles/index.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Mui from 'vue-awesome-mui';
 // 引入echarts
-import echarts from 'echarts'
+import echarts from 'echarts';
 
 Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
@@ -21,6 +23,7 @@ Vue.use(element);
 
 new Vue({
   el: '#app',
+  store,
   router,
   components: {App},
   template: '<App/>'
