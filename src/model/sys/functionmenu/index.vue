@@ -1,26 +1,29 @@
 <template>
-  <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-    <van-col span="22" offset="1">
-      <van-swipe-cell v-for="count in 10" :key="count">
-        <van-cell clickable>
-          <van-row type="flex" align="center">
-            <el-avatar shape="square">{{text}}</el-avatar>
-            <span class="span-class">{{text}}</span>
-          </van-row>
-        </van-cell>
-        <template #right>
-          <van-button square type="danger" text="删除" class="delete-button"/>
-        </template>
-      </van-swipe-cell>
-    </van-col>
-  </van-pull-refresh>
+  <van-tree-select height="55vw" :items="items" :main-active-index.sync="active">
+    <template #content>
+      <van-image
+        v-if="active === 0"
+        src="https://img.yzcdn.cn/vant/apple-1.jpg"
+      />
+      <van-image
+        v-if="active === 1"
+        src="https://img.yzcdn.cn/vant/apple-2.jpg"
+      />
+    </template>
+  </van-tree-select>
 </template>
 <script>
   export default {
     data() {
       return {
         isLoading: false,
-        text: "示例141411141"
+        text: "示例141411141",
+        active: 0,
+        activeIndex: 0,
+        items: [
+          {text: '浙江', children: [], dot: true},
+          {text: '江苏', children: [], badge: 5},
+        ]
       }
     },
     methods: {
@@ -28,6 +31,9 @@
         setTimeout(() => {
           this.isLoading = false;
         }, 1000);
+      },
+      handleNodeClick(data) {
+        console.log(data);
       }
     }
   };
