@@ -8,8 +8,7 @@
       :label="label"
       v-if="type==='select'"
       :placeholder="placeholder"
-      @click="showPicker = true"
-    />
+      @click="showPicker = true"/>
     <van-field
       clickable
       :label="label"
@@ -33,8 +32,7 @@
       :label="label"
       v-if="type==='date'"
       :placeholder="placeholder"
-      @click="showCalendar = true"
-    />
+      @click="showCalendar = true"/>
     <van-calendar
       v-if="type==='date'"
       v-model="showCalendar"
@@ -43,13 +41,20 @@
       clickable
       v-if="type==='message'"
       v-model="value"
-      rows="10"
+      rows="20"
       autosize
       :label="label"
       type="textarea"
       :placeholder="placeholder"
-      show-word-limit
-    />
+      show-word-limit/>
+    <van-field
+      name="uploader"
+      :label="label"
+      v-if="type==='uploader'">
+      <template #input>
+        <van-uploader v-model="fileList"/>
+      </template>
+    </van-field>
     <van-number-keyboard
       :show="keyboardShow"
       theme="custom"
@@ -57,8 +62,7 @@
       close-button-text="完成"
       @blur="keyboardShow = false"
       @input="onInput"
-      @delete="onDelete"
-    />
+      @delete="onDelete"/>
     <van-popup
       v-model="showPicker"
       position="bottom"
@@ -68,8 +72,7 @@
         show-toolbar
         :columns="columns"
         @confirm="onConfirm"
-        @cancel="showPicker = false"
-      />
+        @cancel="showPicker = false"/>
     </van-popup>
   </van-cell-group>
 </template>
@@ -95,7 +98,8 @@
     },
     data() {
       return {
-        value: '',
+        fileList: [],
+        value: null,
         errorInfo: '',
         keyboardShow: false,
         showPicker: false,

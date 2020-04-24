@@ -8,6 +8,10 @@ const state = {
   user: window.sessionStorage.getItem('user'),
   token: window.sessionStorage.getItem('token'),
   functionMenu: [{
+    path: '/myprojectcost',
+    hidden: true,
+    component: 'model/cost/projectcost/index'
+  }, {
     path: '/home',
     hidden: true,
     component: 'common/layout/index',

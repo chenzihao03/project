@@ -5,13 +5,9 @@
     v-model="active">
     <van-tabbar-item icon="wap-home" to="/projectCost/projectCost">首页</van-tabbar-item>
     <van-tabbar-item icon="comment" to="/basic/department">部门</van-tabbar-item>
-    <el-popover
-      placement="top-start"
-      title="标题"
-      trigger="hover"
-      content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
-      <img src="@/assets/img/logo.jpg" class="center-class" slot="reference"/>
-    </el-popover>
+    <van-tabbar-item to="/myprojectcost">
+      <img src="@/assets/img/logo.jpg" class="center-class"/>
+    </van-tabbar-item>
     <van-tabbar-item icon="comment" to="/basic/user">用户</van-tabbar-item>
     <van-tabbar-item icon="friends" to="/basic/project">项目</van-tabbar-item>
   </van-tabbar>
@@ -43,7 +39,7 @@
   }
 
   .center-class {
-    margin-top: -15px;
+    margin-top: -20px;
     height: 60px;
     width: 60px;
     border-radius: 50px;
