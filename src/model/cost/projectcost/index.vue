@@ -3,7 +3,7 @@
     <van-nav-bar
       title="项目成本维护"
       right-text="完成"
-      @click-right="onClickRight"/>
+      @click-right="onSubmit"/>
     <van-cell-group class="group-class">
       <template v-for="(item,index) in label">
         <Selector
@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-  import Selector from '@/common/components/Selector'
+  import Selector from '@/common/components/Selector';
 
   export default {
     components: {

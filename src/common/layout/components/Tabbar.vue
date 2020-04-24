@@ -5,7 +5,7 @@
     v-model="active">
     <van-tabbar-item icon="wap-home" to="/projectCost/projectCost">首页</van-tabbar-item>
     <van-tabbar-item icon="comment" to="/basic/department">部门</van-tabbar-item>
-    <van-tabbar-item @click="showList = true">
+    <van-tabbar-item @click="setShow(true)">
       <img src="@/assets/img/logo.jpg" class="center-class"/>
     </van-tabbar-item>
     <van-tabbar-item icon="comment" to="/basic/user">用户</van-tabbar-item>
@@ -29,13 +29,17 @@
     },
     data() {
       return {
-        active: 0,
-        showList: false
+        active: 0
       }
     },
     methods: {
       setShow(event) {
-        this.showList = event;
+        this.$store.commit('SET_POPUP', event);
+      }
+    },
+    computed: {
+      showList() {
+        return this.$store.state.popupShow;
       }
     }
   }

@@ -17,7 +17,7 @@
               icon="label"
               desc="D工厂-北一D工厂MES系统"
               status="未审批"
-              @click="showList = true">
+              @click="setShow(true)">
               <div style="padding:10px;">
                 &nbsp;&nbsp;&nbsp;&nbsp;车间调度平台是否具备生产条件字段因无法统计状态，导致调度无法派工的问题，添加字段，通过执行存储过程反写状态
               </div>
@@ -51,7 +51,6 @@
     },
     data() {
       return {
-        showList: false,
         isLoading: false
       }
     },
@@ -74,11 +73,11 @@
       },
 
       onSelect() {
-        this.showList = false;
+        this.$store.commit('SET_POPUP', false);
       },
 
       onSave(info) {
-        this.showList = false;
+        this.$store.commit('SET_POPUP', false);
 
         if (this.isEdit) {
           this.list = this.list.map(item => item.id === info.id ? info : item);
@@ -93,7 +92,7 @@
       },
 
       setShow(event) {
-        this.showList = event;
+        this.$store.commit('SET_POPUP', event);
       }
     },
     computed: {
@@ -103,6 +102,9 @@
       currentContact() {
         const id = this.chosenContactId;
         return id !== null ? this.list.filter(item => item.id === id)[0] : {};
+      },
+      showList() {
+        return this.$store.state.popupShow;
       }
     }
   }

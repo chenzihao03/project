@@ -99,7 +99,7 @@
     data() {
       return {
         fileList: [],
-        value: null,
+        value: '',
         errorInfo: '',
         keyboardShow: false,
         showPicker: false,

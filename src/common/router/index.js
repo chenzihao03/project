@@ -81,7 +81,13 @@ router.beforeEach((to, from, next) => {
   // } else {
   //   next()
   // }
-  next();
+  const popupShow = store.state.popupShow;
+  if (popupShow) {
+    store.commit('SET_POPUP', false);
+    next({path: from.path});
+  } else {
+    next();
+  }
 });
 
 //抛出这个这个实例对象方便外部读取以及访问

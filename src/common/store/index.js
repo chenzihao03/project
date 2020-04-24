@@ -7,6 +7,7 @@ Vue.use(Vuex)
 const state = {
   user: window.sessionStorage.getItem('user'),
   token: window.sessionStorage.getItem('token'),
+  popupShow: false,
   functionMenu: [{
     path: '/myprojectcost',
     hidden: true,
@@ -124,6 +125,10 @@ const mutations = {
   SET_ROUTE: (state, data) => {
     // 把用户名存起来
     state.functionMenu = data;
+  },
+  SET_POPUP: (state, data) => {
+    // 是否显示弹出框
+    state.popupShow = data;
   },
   //登出
   LOGOUT: (state) => {
