@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-  import ProjectCost from '../projectcost';
+  import ProjectCost from '@/model/cost/projectcost';
 
   export default {
     components: {

@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <br><br>
+  <div class="div-class">
+    <van-nav-bar
+      title="项目成本维护"
+      right-text="完成"
+      @click-right="onClickRight"/>
     <van-cell-group class="group-class">
       <template v-for="(item,index) in label">
         <Selector
@@ -12,7 +15,7 @@
         ></Selector>
       </template>
     </van-cell-group>
-    <van-button type="primary" block @click="onSubmit">提交</van-button>
+    <van-icon name="cross" @click="onClose" class="bottom-class"/>
   </div>
 </template>
 <script>
@@ -22,10 +25,16 @@
     components: {
       Selector
     },
+    props: {
+      show: {
+        type: Boolean,
+        default: true
+      }
+    },
     data() {
       return {
         activeName: '1',
-        show: false,
+        isShow: this.show,
         label: [{
           name: "项目选择",
           type: "select",
@@ -50,6 +59,9 @@
           placeholder: "点击选择工作地点",
           columns: ['公司', '项目单位', '其他']
         }, {
+          name: "附件上传",
+          type: "uploader"
+        }, {
           name: "费用说明",
           type: "message",
           placeholder: "填写工作时间内容"
@@ -59,6 +71,10 @@
     methods: {
       onSubmit() {
         debugger;
+      },
+      onClose() {
+        this.isShow = false;
+        this.$emit('setShow', this.isShow)
       }
     }
   }
@@ -66,6 +82,13 @@
 <style scoped>
   .group-class {
     border-radius: 10px;
+  }
+
+  .bottom-class {
+    position: fixed;
+    bottom: 20px;
+    font-size: 30px;
+    left: 48%;
   }
 </style>
 

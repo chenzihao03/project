@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="div-class">
     <van-nav-bar
       title="项目成本维护"
       right-text="完成"
@@ -25,10 +25,16 @@
     components: {
       Selector
     },
+    props: {
+      show: {
+        type: Boolean,
+        default: true
+      }
+    },
     data() {
       return {
         activeName: '1',
-        show: false,
+        isShow: this.show,
         label: [{
           name: "项目选择",
           type: "select",
@@ -67,7 +73,8 @@
         debugger;
       },
       onClose() {
-        this.$router.go(-1);
+        this.isShow = false;
+        this.$emit('setShow', this.isShow)
       }
     }
   }
@@ -82,6 +89,12 @@
     bottom: 20px;
     font-size: 30px;
     left: 48%;
+  }
+
+  .div-class:before {
+    content: '';
+    height: 40px;
+    display: block;
   }
 </style>
 

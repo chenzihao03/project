@@ -29,6 +29,12 @@
   }
 </script>
 <style scoped>
+  .row-class:before {
+    content: '';
+    height: 40px;
+    display: block;
+  }
+
   .row-class {
     width: 100%;
     height: 100%;

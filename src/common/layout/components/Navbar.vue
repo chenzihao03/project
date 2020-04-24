@@ -1,7 +1,5 @@
 <template>
   <van-row class="navbar">
-    <van-row>&nbsp;</van-row>
-    <van-row>&nbsp;</van-row>
     <van-row>
       <van-nav-bar left-arrow>
         <template #left>

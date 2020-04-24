@@ -36,14 +36,14 @@
     </van-pull-refresh>
     <van-popup
       v-model="showList"
-      :style="{ width: '100%' }"
-      round position="bottom">
-      <project-cost></project-cost>
+      :style="{ width: '100%',height:'100%' }"
+      position="bottom">
+      <project-cost :show="showList" @setShow="setShow"></project-cost>
     </van-popup>
   </div>
 </template>
 <script>
-  import ProjectCost from '../projectcost';
+  import ProjectCost from '@/model/cost/projectcost';
 
   export default {
     components: {
@@ -90,6 +90,10 @@
 
       onDelete(info) {
         this.$toast.success('删除成功！');
+      },
+
+      setShow(event) {
+        this.showList = event;
       }
     },
     computed: {

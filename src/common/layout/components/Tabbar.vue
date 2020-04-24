@@ -5,19 +5,37 @@
     v-model="active">
     <van-tabbar-item icon="wap-home" to="/projectCost/projectCost">首页</van-tabbar-item>
     <van-tabbar-item icon="comment" to="/basic/department">部门</van-tabbar-item>
-    <van-tabbar-item to="/myprojectcost">
+    <van-tabbar-item @click="showList = true">
       <img src="@/assets/img/logo.jpg" class="center-class"/>
     </van-tabbar-item>
     <van-tabbar-item icon="comment" to="/basic/user">用户</van-tabbar-item>
     <van-tabbar-item icon="friends" to="/basic/project">项目</van-tabbar-item>
+    <van-popup
+      v-model="showList"
+      :style="{ width: '100%',height:'100%' }"
+      position="bottom"
+      :overlay="false">
+      <project-cost :show="showList" @setShow="setShow"></project-cost>
+    </van-popup>
   </van-tabbar>
 </template>
 
 <script>
+  import ProjectCost from '@/model/cost/projectcost';
+
   export default {
+    components: {
+      ProjectCost
+    },
     data() {
       return {
-        active: 0
+        active: 0,
+        showList: false
+      }
+    },
+    methods: {
+      setShow(event) {
+        this.showList = event;
       }
     }
   }

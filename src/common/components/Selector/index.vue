@@ -41,7 +41,7 @@
       clickable
       v-if="type==='message'"
       v-model="value"
-      rows="20"
+      rows="10"
       autosize
       :label="label"
       type="textarea"
