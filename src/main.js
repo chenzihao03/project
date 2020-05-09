@@ -4,6 +4,7 @@ import App from './App';
 import store from './common/store';
 import router from './common/router';
 import element from './common/element';
+import Fragment from 'vue-fragment'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 import '@/common/styles/index.css';
@@ -20,6 +21,7 @@ Vue.use(Mui);
 Vue.use(Vant);
 Vue.use(echarts);
 Vue.use(element);
+Vue.use(Fragment.Plugin);
 
 new Vue({
   el: '#app',

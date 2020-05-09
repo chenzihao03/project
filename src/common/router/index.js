@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import store from '../store'
 import Router from 'vue-router'
+import {Toast} from 'vant';
 
 Vue.use(Router);
 
@@ -81,11 +82,31 @@ router.beforeEach((to, from, next) => {
   // } else {
   //   next()
   // }
-  const popupShow = store.state.popupShow;
+  let popupShow = store.state.popupShow;
   if (popupShow) {
     store.commit('SET_POPUP', false);
-    next({path: from.path});
+    history.go(1); // 返回上一页
   } else {
+    let quit = false;
+    mui.back = function () {  //按下物理返回键
+      if (!quit) {
+        if (to.path === '/projectCost/projectCost' || to.path === '/login') {
+          Toast("再按一次退出程序");
+          quit = true;
+          setTimeout(function () {
+            quit = false
+          }, 2000)
+        } else {
+          if (to.matched[0].instances.default.showmask) {
+            to.matched[0].instances.default.showmask = false;
+          } else {
+            history.go(-1); // 返回上一页
+          }
+        }
+      } else {
+        plus.runtime.quit(); //退出app
+      }
+    };
     next();
   }
 });

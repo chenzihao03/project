@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <fragment>
     <template v-for="item in menu">
       <!-- 最后一级菜单 -->
       <el-menu-item
@@ -7,7 +7,7 @@
         :key="item.path"
         :index="parent ? parent + '/' + item.path : item.path">
         <i :class="item.meta.icon"></i>
-        <span slot="title">&nbsp;&nbsp;{{item.meta.title}}</span>
+        <span slot="title" v-if="!isCollapse">&nbsp;&nbsp;{{item.meta.title}}</span>
       </el-menu-item>
 
       <!-- 此菜单下还有子菜单 -->
@@ -17,7 +17,7 @@
         :index="parent ? parent + '/' + item.path : item.path">
         <template slot="title">
           <i :class="item.meta.icon"></i>
-          <span>&nbsp;&nbsp;&nbsp;{{ item.meta.title }}</span>
+          <span v-if="!isCollapse">&nbsp;&nbsp;&nbsp;{{ item.meta.title }}</span>
         </template>
         <!-- 递归 -->
         <sidebar-item
@@ -25,13 +25,13 @@
           :parent="parent ? parent + '/' + item.path : item.path"/>
       </el-submenu>
     </template>
-  </div>
+  </fragment>
 </template>
 
 <script>
   export default {
     name: "SidebarItem",
-    props: ["menu", "parent"]
+    props: ["menu", "parent", "isCollapse"]
   }
 </script>
 

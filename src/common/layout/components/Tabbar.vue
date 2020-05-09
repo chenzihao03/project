@@ -34,12 +34,17 @@
     },
     methods: {
       setShow(event) {
-        this.$store.commit('SET_POPUP', event);
+        this.showList = event;
       }
     },
     computed: {
-      showList() {
-        return this.$store.state.popupShow;
+      showList: {
+        get() {
+          return this.$store.state.popupShow;
+        },
+        set(val) {
+          this.$store.commit('SET_POPUP', val);
+        }
       }
     }
   }

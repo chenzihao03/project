@@ -37,7 +37,7 @@
         this.isShow = event;
       },
       tShow() {
-        alert(123);
+        this.$toast('再按一次退出程序');
       }
     }
   }

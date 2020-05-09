@@ -73,11 +73,11 @@
       },
 
       onSelect() {
-        this.$store.commit('SET_POPUP', false);
+        this.showList = false;
       },
 
       onSave(info) {
-        this.$store.commit('SET_POPUP', false);
+        this.showList = false;
 
         if (this.isEdit) {
           this.list = this.list.map(item => item.id === info.id ? info : item);
@@ -92,7 +92,7 @@
       },
 
       setShow(event) {
-        this.$store.commit('SET_POPUP', event);
+        this.showList = event;
       }
     },
     computed: {
@@ -103,8 +103,13 @@
         const id = this.chosenContactId;
         return id !== null ? this.list.filter(item => item.id === id)[0] : {};
       },
-      showList() {
-        return this.$store.state.popupShow;
+      showList: {
+        get() {
+          return this.$store.state.popupShow;
+        },
+        set(val) {
+          this.$store.commit('SET_POPUP', val);
+        }
       }
     }
   }

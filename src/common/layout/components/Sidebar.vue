@@ -20,7 +20,8 @@
     <el-menu
       class="el-menu-vertical-demo"
       @select="setCollapse"
-      router>
+      router
+      unique-opened>
       <sidebar-item :menu="routes"></sidebar-item>
     </el-menu>
   </van-popup>
