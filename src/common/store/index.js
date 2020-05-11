@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 //挂载Vuex
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const state = {
-  user: window.sessionStorage.getItem('user'),
-  token: window.sessionStorage.getItem('token'),
+  user: window.localStorage.getItem('user'),
+  token: window.localStorage.getItem('token'),
   popupShow: false,
   functionMenu: [{
     path: '/myprojectcost',
@@ -16,7 +16,8 @@ const state = {
     path: '/home',
     hidden: true,
     component: 'common/layout/index',
-    redirect: '/projectCost/projectCost'
+    redirect: '/projectCost/projectCost',
+    meta: {requireAuth: true}
   }, {
     path: '/sys',
     name: '系统设置',
@@ -113,13 +114,13 @@ const mutations = {
   //将token保存到sessionStorage里，token表示登陆状态
   SET_TOKEN: (state, data) => {
     state.token = data;
-    window.sessionStorage.setItem('token', data);
+    window.localStorage.setItem('token', data);
   },
   //设置用户名
   SET_USER: (state, data) => {
     // 把用户名存起来
     state.user = data;
-    window.sessionStorage.setItem('user', data);
+    window.localStorage.setItem('user', data);
   },
   //设置路由
   SET_ROUTE: (state, data) => {
@@ -135,8 +136,8 @@ const mutations = {
     // 登出的时候要清除token
     state.token = null;
     state.user = null;
-    window.sessionStorage.removeItem('token');
-    window.sessionStorage.removeItem('user');
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('user');
   }
 };
 

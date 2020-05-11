@@ -92,6 +92,7 @@
       },
 
       setShow(event) {
+        debugger;
         this.showList = event;
       }
     },

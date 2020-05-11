@@ -16,7 +16,7 @@ const router = new Router({
     hidden: true,
   }, {
     path: '/',
-    redirect: '/login',
+    redirect: '/home',
     hidden: true,
   }, {
     path: '/login',
@@ -70,18 +70,15 @@ function menusToRoutes(data) {
 
 // 注册全局钩子用来拦截导航
 router.beforeEach((to, from, next) => {
-  // const token = store.state.token;
-  // if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
-  //   if (token) { // 通过vuex state获取当前的token是否存在
-  //     next()
-  //   } else {
-  //     next({
-  //       path: '/login'
-  //     })
-  //   }
-  // } else {
-  //   next()
-  // }
+  const token = store.state.token;
+  debugger;
+  if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
+    if (!token) {
+      next({
+        path: '/login'
+      });
+    }
+  }
   let popupShow = store.state.popupShow;
   if (popupShow) {
     store.commit('SET_POPUP', false);

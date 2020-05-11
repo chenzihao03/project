@@ -40,6 +40,8 @@
     },
     methods: {
       checkLogin() {
+        this.$store.commit('SET_TOKEN', true);
+        this.$store.commit('SET_USER', this.username);
         this.$router.push('home');
       }
     }
