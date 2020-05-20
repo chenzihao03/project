@@ -2,8 +2,11 @@
   <div class="div-class">
     <van-nav-bar
       title="项目成本维护"
-      right-text="完成"
-      @click-right="onSubmit"/>
+      @click-right="onSubmit">
+      <template #right>
+        <van-icon name="passed" size="40"/>
+      </template>
+    </van-nav-bar>
     <van-cell-group class="group-class">
       <template v-for="(item,index) in label">
         <Selector
@@ -34,7 +37,6 @@
     data() {
       return {
         activeName: '1',
-        isShow: this.show,
         label: [{
           name: "项目选择",
           type: "select",
@@ -69,12 +71,11 @@
       }
     },
     methods: {
-      onSubmit() {
-        debugger;
+      onSubmit(event) {
+        this.$store.commit('SET_POPUP', false);
       },
       onClose() {
-        this.isShow = false;
-        this.$emit('setShow', this.isShow)
+        this.$store.commit('SET_POPUP', false);
       }
     }
   }
@@ -88,7 +89,7 @@
     position: fixed;
     bottom: 20px;
     font-size: 30px;
-    left: 48%;
+    right: 46%;
   }
 
   .div-class:before {

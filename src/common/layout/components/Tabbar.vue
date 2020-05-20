@@ -9,7 +9,7 @@
       <img src="@/assets/img/logo.jpg" class="center-class"/>
     </van-tabbar-item>
     <van-tabbar-item icon="comment" to="/basic/user">用户</van-tabbar-item>
-    <van-tabbar-item icon="friends" to="/basic/project">项目</van-tabbar-item>
+    <van-tabbar-item icon="friends" to="/basic/my">我的</van-tabbar-item>
     <van-popup
       v-model="showList"
       :style="{ width: '100%',height:'100%' }"

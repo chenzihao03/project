@@ -71,41 +71,43 @@ function menusToRoutes(data) {
 // 注册全局钩子用来拦截导航
 router.beforeEach((to, from, next) => {
   const token = store.state.token;
-  debugger;
   if (to.meta.requireAuth) { // 判断该路由是否需要登录权限
     if (!token) {
-      next({
-        path: '/login'
-      });
+      next('/login');
     }
   }
-  let popupShow = store.state.popupShow;
-  if (popupShow) {
-    store.commit('SET_POPUP', false);
-    history.go(1); // 返回上一页
-  } else {
-    let quit = false;
-    mui.back = function () {  //按下物理返回键
+
+  let popupShow = store.state.popupShow,
+    myShow = store.state.myShow,
+    quit = false, isGo = true;
+
+  mui.back = function () {  //按下物理返回键
+    let popupShow1 = store.state.popupShow,
+      myShow1 = store.state.myShow;
+    if (to.path === '/projectCost/projectCost' || to.path === '/login') {
       if (!quit) {
-        if (to.path === '/projectCost/projectCost' || to.path === '/login') {
-          Toast("再按一次退出程序");
-          quit = true;
-          setTimeout(function () {
-            quit = false
-          }, 2000)
-        } else {
-          if (to.matched[0].instances.default.showmask) {
-            to.matched[0].instances.default.showmask = false;
-          } else {
-            history.go(-1); // 返回上一页
-          }
-        }
+        console.log("1" + popupShow1 + "2" + myShow1);
+        store.commit('SET_POPUP', false);
+        store.commit('SET_MY_POPUP', false);
+        Toast("再按一次退出程序");
+        quit = true;
+        setTimeout(function () {
+          quit = false;
+        }, 2000);
       } else {
         plus.runtime.quit(); //退出app
       }
-    };
-    next();
+    } else {
+      next(from);
+    }
+  };
+
+  if (popupShow || myShow) {
+    store.commit('SET_POPUP', false);
+    store.commit('SET_MY_POPUP', false);
+    isGo = false;
   }
+  next(isGo);
 });
 
 //抛出这个这个实例对象方便外部读取以及访问

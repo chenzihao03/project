@@ -38,7 +38,7 @@
       v-model="showList"
       :style="{ width: '100%',height:'100%' }"
       position="bottom">
-      <project-cost :show="showList" @setShow="setShow"></project-cost>
+      <project-cost :show="showList"></project-cost>
     </van-popup>
   </div>
 </template>
@@ -60,50 +60,16 @@
           this.isLoading = false;
         }, 1000);
       },
-      onAdd() {
-        this.editingContact = {id: this.list.length};
-        this.isEdit = false;
-        this.showEdit = true;
-      },
-
-      onEdit(item) {
-        this.isEdit = true;
-        this.showEdit = true;
-        this.editingContact = item;
-      },
-
-      onSelect() {
-        this.showList = false;
-      },
-
-      onSave(info) {
-        this.showList = false;
-
-        if (this.isEdit) {
-          this.list = this.list.map(item => item.id === info.id ? info : item);
-        } else {
-          this.list.push(info);
-        }
-        this.chosenContactId = info.id;
-      },
 
       onDelete(info) {
         this.$toast.success('删除成功！');
       },
 
       setShow(event) {
-        debugger;
         this.showList = event;
       }
     },
     computed: {
-      cardType() {
-        return this.chosenContactId !== null ? 'edit' : 'add';
-      },
-      currentContact() {
-        const id = this.chosenContactId;
-        return id !== null ? this.list.filter(item => item.id === id)[0] : {};
-      },
       showList: {
         get() {
           return this.$store.state.popupShow;

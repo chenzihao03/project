@@ -73,8 +73,7 @@
         debugger;
       },
       onClose() {
-        this.isShow = false;
-        this.$emit('setShow', this.isShow)
+        this.$router.go(-1);
       }
     }
   }

@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <transition name="van-fade" mode="out-in" v-if="isShow">
-      <router-view/>
-    </transition>
-    <transition name="van-slide-left" v-else>
+    <transition name="van-fade" mode="out-in">
       <router-view/>
     </transition>
   </div>
@@ -11,22 +8,7 @@
 
 <script>
   export default {
-    name: 'App',
-    data() {
-      return {
-        route: this.$route.path
-      }
-    },
-    methods: {},
-    computed: {
-      isShow() {
-        if (this.$route.path !== "/home") {
-          return true;
-        } else {
-          return false;
-        }
-      }
-    }
+    name: 'App'
   }
 </script>
 <style scoped>

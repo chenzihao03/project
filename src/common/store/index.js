@@ -8,6 +8,7 @@ const state = {
   user: window.localStorage.getItem('user'),
   token: window.localStorage.getItem('token'),
   popupShow: false,
+  myShow: false,
   functionMenu: [{
     path: '/myprojectcost',
     hidden: true,
@@ -15,9 +16,13 @@ const state = {
   }, {
     path: '/home',
     hidden: true,
-    component: 'common/layout/index',
     redirect: '/projectCost/projectCost',
     meta: {requireAuth: true}
+  },{
+    path: '/projectcost',
+    hidden1: true,
+    component: 'model/projectcost/index',
+    meta: {title: '项目成本统计',requireAuth: true}
   }, {
     path: '/sys',
     name: '系统设置',
@@ -64,6 +69,12 @@ const state = {
       name: '成本项',
       component: 'model/project/index',
       meta: {title: '成本项', icon: 'fa fa-university', requireAuth: true}
+    }, {
+      path: 'my',
+      name: '我的',
+      hidden: true,
+      component: 'model/basic/my/index',
+      meta: {title: '我的', icon: 'fa fa-university', requireAuth: true}
     }]
   }, {
     path: '/projectCost',
@@ -130,6 +141,10 @@ const mutations = {
   SET_POPUP: (state, data) => {
     // 是否显示弹出框
     state.popupShow = data;
+  },
+  SET_MY_POPUP: (state, data) => {
+    // 是否显示弹出框
+    state.myShow = data;
   },
   //登出
   LOGOUT: (state) => {

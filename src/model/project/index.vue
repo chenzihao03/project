@@ -34,7 +34,11 @@
       </van-row>
     </van-pull-refresh>
     <!-- 联系人列表 -->
-    <van-popup v-model="showList" round position="bottom">
+    <van-popup v-model="showList"
+               round
+               position="bottom"
+               closeable
+               close-icon-position="top-left">
       <project-cost></project-cost>
     </van-popup>
   </div>
